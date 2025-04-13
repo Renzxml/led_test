@@ -1,0 +1,24 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Try Node.js App</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    button { padding: 0.5rem 1rem; font-size: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Vercel Node.js App</h1>
+  <button onclick="getMessage()">Get Message from Server</button>
+  <p id="message"></p>
+
+  <script>
+    async function getMessage() {
+      const res = await fetch('/api/message');
+      const data = await res.json();
+      document.getElementById('message').innerText = data.message;
+    }
+  </script>
+</body>
+</html>
